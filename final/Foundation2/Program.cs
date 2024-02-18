@@ -15,13 +15,24 @@ class Program
         order1.AddProduct(usb);
         orders.Add(order1);
 
+        Address address2 = new Address("1357 Norte", "San Miguel", "PUE", "MEX");
+        Customer customer2 = new Customer("Maria Jose", address2);
+        Order order2 = new Order(customer2);
+        Product headphones = new Product("Headphones", "MNB456", 100, 2);
+        Product charger = new Product("Charger", "LKJ283", 20, 2);
+        order2.AddProduct(headphones);
+        order2.AddProduct(charger);
+        orders.Add(order2);
+
         foreach (Order order in orders)
         {
+            Console.WriteLine("-----------------------------------");
             order.DisplayPackingLabel();
             Console.WriteLine("-----------------------------------");
             order.DisplayShippingLabel();
             Console.WriteLine("-----------------------------------");
             Console.WriteLine($"Total: ${order.GetTotalPrice()}\n");
+            Console.WriteLine("-----------------------------------");
         }
     }
 }
